@@ -8,14 +8,19 @@ First create a `mail-setting.conf` configuration file by copying the template
 cp mail-setting.conf.template mail-setting.conf
 ```
 
-edit the fields in `mail-setting.conf` file
+Edit the fields in `mail-setting.conf` file
 
-run the script
+Run the script
 ```
 python updateip.py
 ```
 
-to run the script in background, add `&` to the end of the command
+To run the script in background, add `&` to the end of the command
 ```
 python updateip.py &
 ```
+If you want to run `updateip.py` directly as a script, eg.
+```
+./updateip.py
+```
+you need to change the first line in `updateip.py` to point to your python interpreter
