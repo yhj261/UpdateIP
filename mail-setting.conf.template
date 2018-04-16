@@ -1,0 +1,6 @@
+[mail-setting]
+smtp_server = smtp.aliyun.com
+port = 465
+username = abcd@aliyun.com
+password = 12345678!
+recipient = 1234@aliyun.com
