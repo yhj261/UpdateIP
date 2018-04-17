@@ -3,14 +3,19 @@
 import logging  # Use logging module to format the log file
 import requests # Use request module to send GET request and get external ip
 import time     # Use sleep function
-from ConfigParser import ConfigParser
+import os.path  # Use os.path to retrive the path to this script
+from ConfigParser import ConfigParser   # Use ConfigParse to parse the configuration file
 from sendmail import sendmail # import the sendmail function we created in sendmail.py
 
 SLEEP_TIME = 60 # 60 seconds interval between each IP check
 
+# Get the path to current working directory
+full_path = os.path.realpath(__file__)
+dir_path = os.path.dirname(full_path)
+
 # Parse the configuration file to get mail-settings
 parser = ConfigParser()
-parser.read('mail-setting.conf')
+parser.read(dir_path + '/' + 'mail-setting.conf')
 smtp_server =  parser.get('mail-setting', 'smtp_server')
 port =  parser.get('mail-setting', 'port')
 username = parser.get('mail-setting', 'username')
@@ -18,7 +23,7 @@ password = parser.get('mail-setting', 'password')
 recipient = parser.get('mail-setting', 'recipient')
 
 # Specify log format and set the logging level to INFO
-logging.basicConfig(filename='updateip.log',level=logging.INFO,\
+logging.basicConfig(filename=dir_path + '/' + 'updateip.log',level=logging.INFO,\
 format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 
 # Get external IP by sending GET request to "icanhanzip.com"
