@@ -9,7 +9,14 @@ A python script for detecting external IP changes
     ```
 
 2. Edit the fields in `mail-setting.conf` file
-
+```
+  1 [mail-setting]
+  2 smtp_server = smtp.aliyun.com ### smtp server address used to send mail ###
+  3 port = 465                    ### smtp port used to send mail ###  
+  4 username = abcd@aliyun.com    ### username used to connect to smtp server ###
+  5 password = 12345678!          ### password used to connect to smtp server ###  
+  6 recipient = 1234@aliyun.com   ### mail address to receive notification ###  
+```
 3. Run the script
     ```
     python updateip.py
